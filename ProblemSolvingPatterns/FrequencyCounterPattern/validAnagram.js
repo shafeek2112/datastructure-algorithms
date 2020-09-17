@@ -19,7 +19,7 @@ and then run the third loop to compare each string.
 This will consists of 3 loop intead of nested loop. So O(3n) = O(n)
 */
 
-function validAnagrams(stringOne, stringTwo)
+/* function validAnagrams(stringOne, stringTwo)
 {
     // First check length of two strings.
     if(stringOne.length !== stringTwo.length)
@@ -48,5 +48,39 @@ function validAnagrams(stringOne, stringTwo)
     }
     return true;
 }
+console.log(validAnagrams('anagram', 'nagarama')); */
 
-console.log(validAnagrams('anagram', 'nagarama'));
+/* 
+3. Better solution using only two loops
+*/
+function validAnagrams(stringOne, stringTwo)
+{
+    // First check length of two strings.
+    if(stringOne.length !== stringTwo.length)
+        return false;
+
+    //Loop first string to count the frequency of letters
+    let lookup = {};
+
+    for(let char of stringOne)
+    {
+        lookup[char] = (lookup[char] !== undefined) ? lookup[char]+1 : 1;
+    }
+    // console.log(lookup)
+    //Second stirng
+    for(let charTwo of stringTwo)
+    {
+        if(!lookup[charTwo])
+        {
+            return false;
+        }
+        else 
+        {
+            lookup[charTwo] -=1;
+        }
+    }
+    // console.log(lookup)
+    return true;
+}
+
+console.log(validAnagrams('anagram', 'nagaram'));
