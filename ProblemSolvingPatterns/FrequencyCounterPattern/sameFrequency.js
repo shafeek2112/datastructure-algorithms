@@ -37,4 +37,5 @@ function sameFrequency(numOne,numTwo)
     return true;
 }
 
-console.log(sameFrequency(28254,58422));
+// console.log(sameFrequency(28254,58422));
+console.log(sameFrequency('anagram','nagaram'));

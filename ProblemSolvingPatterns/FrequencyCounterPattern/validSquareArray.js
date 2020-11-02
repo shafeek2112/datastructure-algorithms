@@ -19,7 +19,7 @@ and then run the third loop to compare each array.
 This will consists of 3 loop intead of nested loop. So O(3n) = O(n)
 */
 
-function same(arrayOne,arrayTwo)
+/* function same(arrayOne,arrayTwo)
 {
     if(arrayOne.length !== arrayTwo.length)
         return false;
@@ -47,6 +47,34 @@ function same(arrayOne,arrayTwo)
     }
 
     return true;
+} */
+
+function same(arrayOne,arrayTwo)
+{
+    if(arrayOne.length !== arrayTwo.length)
+        return false;
+
+    let objectFirst = {};
+    let objectSecond = {};
+
+    //Loop first array
+    for(let number of arrayOne)
+    {
+        objectFirst[number ** 2 ] = (objectFirst[number ** 2 ]) ? objectFirst[number ** 2 ] + 1 : 1;
+    }
+
+    for(let number of arrayTwo)
+    {
+        if(objectFirst[number] && objectFirst[number] !== 0) {
+            objectFirst[number]--
+        }
+        else {
+            return false;
+        }
+        
+    }
+
+    return true;
 }
 
-console.log(same([1,2,1], [4,1,4]))
+console.log(same([1,2,1], [4,1,1]))

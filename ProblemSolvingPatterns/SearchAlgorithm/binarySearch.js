@@ -31,7 +31,6 @@ function binarySearch(arr,num)
         if(start === end && arr[start] === num) return start;
     }
     return -1;
-
 }
 
 // console.log(binarySearch([1,2,3,4,5],2));
