@@ -50,7 +50,7 @@ function stringSearch(pattern, str)
     //Step 1 -  find the lenght of prefix also same as suffix in all the point in the given pattern and store in the arrays. 
     let patternMatchArray = findPatternMatching(pattern);
     
-    //Step 2. Then compare the pattern with string using the value computed in the step 1.
+    //Step 2. Then compare the pattern with string using the value computed in the step 1. .
     let i = 0;
     let j = 0;
     while(i <= (str.length - 1))
