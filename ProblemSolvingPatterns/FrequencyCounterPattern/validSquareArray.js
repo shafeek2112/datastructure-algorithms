@@ -49,6 +49,7 @@ This will consists of 3 loop intead of nested loop. So O(3n) = O(n)
     return true;
 } */
 
+//Above solution big O is 3n. but this one is 2n.
 function same(arrayOne,arrayTwo)
 {
     if(arrayOne.length !== arrayTwo.length)
