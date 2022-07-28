@@ -17,8 +17,19 @@ The function should find the first pair where the sum is 0.
 Return an array that includes both values that sum to zero or undefined if a pair does not exist
 */
 
+/****************** Edge cases or the questions to interviewer: *******************************
 
-//Below is the efficient solution works only if the array is sorted.
+    1. Considering its a sorted array meaning there is no any possible case the array contains any invalid inputs such as special charcs, space or symbols etc?
+    2. Do I need to consider the invalid numbers in the array?
+    3. Some of the examples from my understandings:
+        - sumZero([-3,-2,-1,0,1,2,3]) // [-3,3] 
+        - sumZero([-2,0,1,3]) // undefined
+        - sumZero([1,2,3]) // undefined
+
+**********************************************************************************************/
+
+
+//****************Below is the efficient solution works only if the array is sorted.
 
 function sumZero(arr)
 {
