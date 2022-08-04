@@ -61,6 +61,7 @@ function countUniqueValues2(arr2)
     //while loop. => left < right
 
         //if the arr2[left] = arr2[right], then break the loop since this is the sorted array.
+            //If the uniqueValues variable is 0 and arr2[left] = arr2[right], then add 1 may be the array consists of only one integer.
 
         //if arr2[left] is not in obj, then increment uniqueValues and left.
 

@@ -14,7 +14,12 @@
     return output;
 } */
 
+/****************** Edge cases or the questions to interviewer: *******************************
 
+    1. Functions should accept only numbers. What should return if any invalid inputs such as special charcs or symbols etc.
+    
+
+**********************************************************************************************/
 
 //Recursion
 function factorial(num)
