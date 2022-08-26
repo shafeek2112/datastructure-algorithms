@@ -21,10 +21,19 @@
 
 **********************************************************************************************/
 
-//Recursion
+/*
+    Recursion
+    Two important parts of a recursive function!
+    - Base Case – Condition when recursion ends.
+    - Different Input – Every time, should call the function with different input.
+*/
+
 function factorial(num)
 {
+    //Base case.
     if(num === 1) return 1;
+
+    //Different Input – Every time, should call the function with different input.
     return num * factorial(num-1);
 }
 
