@@ -18,7 +18,7 @@
 **********************************************************************************************/
 
 function bubbleSorting(arr) {
-    if(arr.lenght === 0) {
+    if(arr.length === 0) {
         return -1;
     }
 
@@ -45,7 +45,7 @@ function bubbleSorting(arr) {
             //Check is there any swap happened. if no then jsut break.
             if (!checkSwap) break;
             checkSwap = false;
-            
+
             //Reset for new round of checking.
             first = 0;
             second = 1;
