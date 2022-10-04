@@ -119,37 +119,37 @@ When using this KMP, we can write algorithm to do sub string search in O(n)
 
 //--------- 2nd attempt --------
 
-/****************** Edge cases or the questions to interviewer: *******************************
-    1. Input is Uppercase or lower case or mixed?
-    2. What should be the return value? number of time the pattern found or return the index of the pattern match.
+    /****************** Edge cases or the questions to interviewer: *******************************
+        1. Input is Uppercase or lower case or mixed?
+        2. What should be the return value? number of time the pattern found or return the index of the pattern match.
 
-    -----Pseudo code ----------
+        -----Pseudo code ----------
 
-     Create function accepting two param
-     Edgecase - if length of any string is 0 then return.
-     Step 1 
-         Create a temp array from the pattern string.
-         while loop with two 2 points i & j
-         i start with 1. j start with 0 
-         temp array 0th index is always 0.
-         compare i & j, 
-            if there is a match get the current index of j and add 1, store this in the ith place the temp array. 
-                and increase 1 in j & i
+        Create function accepting two param
+        Edgecase - if length of any string is 0 then return.
+        Step 1 
+            Create a temp array from the pattern string.
+            while loop with two 2 points i & j
+            i start with 1. j start with 0 
+            temp array 0th index is always 0.
+            compare i & j, 
+                if there is a match get the current index of j and add 1, store this in the ith place the temp array. 
+                    and increase 1 in j & i
+                if there is no match 
+                    j != 0, get the previous index value of j and j should jump to that place and comare again.
+                    This will continue until the i goes to last element.
+
+                    j = 0, then set the tempArray[i]=0, increase i to 1
+        Step 2
+            while loop - with two pointer textPointer & patternpointer.
+            Now compare the long string with the pattern. 
+            if there is match then increase both pointer by 1.
             if there is no match 
-                j != 0, get the previous index value of j and j should jump to that place and comare again.
-                This will continue until the i goes to last element.
-
-                j = 0, then set the tempArray[i]=0, increase i to 1
-    Step 2
-         while loop - with two pointer textPointer & patternpointer.
-         Now compare the long string with the pattern. 
-         if there is match then increase both pointer by 1.
-         if there is no match 
-            if patternPointer = 0 then increase the textPointer
-            
-            if patternPointer != 0, then get patternPointer's previous index of tempArray. tempArray[patternPointer-1] 
-            and move the patternpointer to that value and loop again        
-**********************************************************************************************/
+                if patternPointer = 0 then increase the textPointer
+                
+                if patternPointer != 0, then get patternPointer's previous index of tempArray. tempArray[patternPointer-1] 
+                and move the patternpointer to that value and loop again        
+    **********************************************************************************************/
 
 
 
