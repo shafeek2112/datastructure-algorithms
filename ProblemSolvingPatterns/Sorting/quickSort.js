@@ -20,6 +20,12 @@
             - If the pivot is greater than the current element, increment the pivot index variable and then swap the current element with the element at the pivot index
         - Swap the starting element (i.e. the pivot) with the pivot index
         - Return the pivot index
+    
+    QuickSort:
+        - It accepts three arguments, left, right & array.
+        - Call the pivot helper on the array
+        - When the helper returns to you the updated pivot index, recursively call the pivot helper on the subarray to the left of that index, and the subarray to the right of that index
+        - Your base case occurs when you consider a subarray with less than 2 elements & left always should be less than right index.
 
     
 **********************************************************************************************/
@@ -36,10 +42,14 @@ function pivot(arr, start=0, end=(arr.length-1)) {
         if(pivot > arr[i]) {
             //Increase the swap index to track how many elements are smaller than the pivot.
             swapIdx++;
-            //swap the value.
-            let temp = arr[i];
-            arr[i] = arr[swapIdx];
-            arr[swapIdx] = temp;
+
+            if(swapIdx != i) {
+                // console.log(swapIdx,i)
+                //swap the value.
+                let temp = arr[i];
+                arr[i] = arr[swapIdx];
+                arr[swapIdx] = temp;
+            }
         }
     }
     //Swapt the pivot into the swapIdx to place the pivot into correct position.
@@ -50,4 +60,20 @@ function pivot(arr, start=0, end=(arr.length-1)) {
     return swapIdx;
 }
 
-console.log(pivot([4,8,2,1,5,7,6,3]));
+function quickSort(arr, left=0, right=arr.length-1) {
+
+    //Base case for recursion: if left is equal or greater than right, then stop.
+    if(left < right) {
+        let pivotIdx = pivot(arr,left,right);
+        //left side
+        quickSort(arr,left,(pivotIdx-1));
+        //right side
+        quickSort(arr,(pivotIdx+1),right);
+    }
+    return arr;
+}
+
+
+
+console.log(quickSort([34,11,23,4,8,2,1,5,7,6,3]));
+console.log(quickSort([55,-4,100,9,-5,4,3,5,6,7,8]));
