@@ -124,7 +124,7 @@ class DoublyLinkedList {
     *   -	Return the list
     * 
     */
-    unshift(val) {
+    unshift(val) { 
         let newNode = new Node(val);
 
         if(!this.head) {
