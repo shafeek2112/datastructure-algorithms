@@ -19,6 +19,21 @@ and then run the third loop to compare each string.
 This will consists of 3 loop intead of nested loop. So O(3n) = O(n)
 */
 
+/****************** Edge cases or the questions to interviewer: *******************************
+    1. Functions accepts only alphabetics or alphanumberics as well?
+    2. Uppercase n lower case matters here?
+    3. What should return if any invalid inputs such as special charcs or symbols etc.
+    4. Should also consider spaces?
+    5. Some of the examples from my understandings:
+        - validAnagram('', '') // true
+        - validAnagram('aaz', 'zza') // false
+        - validAnagram('anagram', 'nagaram') // true
+        - validAnagram("rat","car") // false) // false
+        - validAnagram('awesome', 'awesom') // false
+        - validAnagram('qwerty', 'qeywrt') // true
+        - validAnagram('texttwisttime', 'timetwisttext') // true
+**********************************************************************************************/
+
 /* function validAnagrams(stringOne, stringTwo)
 {
     // First check length of two strings.

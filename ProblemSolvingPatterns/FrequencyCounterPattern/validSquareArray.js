@@ -19,6 +19,18 @@ and then run the third loop to compare each array.
 This will consists of 3 loop intead of nested loop. So O(3n) = O(n)
 */
 
+/****************** Edge cases or the questions to interviewer: *******************************
+
+    1. Functions accepts only numbers or alphabetics or alphanumberics as well?
+    2. What should return if any invalid inputs such as special charcs or symbols etc.
+    3. Should accept space as an integer?
+    4. Some of the examples from my understandings:
+        - same([1,2,3], [4,1,9]) // true
+        - same([1,2,3], [1,9]) // false
+        - same([1,2,1], [4,4,1]) // false (must be same frequency)
+
+**********************************************************************************************/
+
 /* function same(arrayOne,arrayTwo)
 {
     if(arrayOne.length !== arrayTwo.length)
@@ -49,6 +61,7 @@ This will consists of 3 loop intead of nested loop. So O(3n) = O(n)
     return true;
 } */
 
+//Above solution big O is 3n. but this one is 2n.
 function same(arrayOne,arrayTwo)
 {
     if(arrayOne.length !== arrayTwo.length)
