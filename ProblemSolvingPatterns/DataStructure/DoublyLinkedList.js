@@ -110,6 +110,58 @@ class DoublyLinkedList {
         return removedHead;
     }
 
+    /** 
+    * 
+    *   -	Create a new node with the value passed to the function
+    *   -	If the length is 0
+    *       -	Set the head to be the new node
+    *       -	Set the tail to be the new node
+    *   -	Otherwise
+    *       -	Set the prev property on the head of the list to be the new node
+    *       -	Set the next property on the new node to be the head property 
+    *       -	Update the head to be the new node
+    *   -	Increment the length
+    *   -	Return the list
+    * 
+    */
+    unshift(val) {
+        let newNode = new Node(val);
+
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else {
+            let oldHead = this.head;
+            this.head = newNode;
+            oldHead.prev = this.head;
+            this.head.next = oldHead;
+        }
+        this.length++;
+        return this;
+    }
+
+    /** -- Get a Node by its position
+ 	* 	-	This function should accept an index
+	*	-	If the index is less than zero or greater than or equal to the length of the list, return null
+	*	-	Loop through the list until you reach the index and return the node at that 
+	*/
+    get(index) {
+        //Edgecase
+        if(index < 0 || index >= this.length) return undefined;
+        //If 0
+        if(index === 0) return this.head;
+        //If last item.
+        if(index === this.length-1) return this.tail;
+
+        let currentNode = this.head;
+        let count = 0;
+        while(count < index) {
+            currentNode = currentNode.next;
+            count++;
+        }
+        return currentNode;
+    }
 
 }
 
