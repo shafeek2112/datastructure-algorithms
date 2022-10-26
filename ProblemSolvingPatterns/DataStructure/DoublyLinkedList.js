@@ -325,15 +325,15 @@ class DoublyLinkedList {
         this.print();
 
         //Make the tail as the new head.
-        this.head = this.tail;//head = 4
-        let prevNode = this.head;//prevNode = 4
-        let nextNode = this.tail.prev;//nextNode = 3
+        this.head = this.tail;
+        let prevNode = this.head;
+        let nextNode = this.tail.prev;
         while(nextNode) {
-            let current = nextNode; // curr = 3
-            nextNode = nextNode.prev; // nextN = 2
-            current.prev = prevNode;// 
+            let current = nextNode;
+            nextNode = nextNode.prev;
+            current.prev = prevNode; 
             prevNode.next = current;
-            prevNode = current; //2
+            prevNode = current;
         }
         this.tail = prevNode;
         this.tail.next = null;
