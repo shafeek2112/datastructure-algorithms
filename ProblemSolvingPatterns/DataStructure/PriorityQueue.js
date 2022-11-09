@@ -27,10 +27,10 @@ class PriorityQueue {
         let newNode = new Node(val,priority);
         //Similar to the MinBinaryHeap, push it to the end and bubble up.
         this.values.push(newNode);
-        let index = this.values.length-1;
-        this.bubbleUp(index);
+        this.bubbleUp();
     }
-    bubbleUp(index) {
+    bubbleUp() {
+        let index = this.values.length-1;
         while(index > 0) {
             let currentNode = this.values[index];
             //Compare it with paren. MinBinaryHeap to get the parent, (n-1)/2.
@@ -42,7 +42,7 @@ class PriorityQueue {
             //Else Swap
             if(currentNode.priority < parentNode.priority) {
                 this.values[index] = this.values[parentIndex];
-                this.values[parentIndex] = tcurrentNode;
+                this.values[parentIndex] = currentNode;
                 //For next iteration.
                 index = parentIndex;
             }
@@ -51,14 +51,26 @@ class PriorityQueue {
 
     deQueue() {
         //Remove the root node. Root is always the highest priority.
-        let removedNode = this.values.shift();
-        if(this.values.length === 0) return removedNode;
+        
+        //xxxxxxx-------- Should not use the shift, it will change the index of all the subsequent element. so O(n)
+        // let removedNode = this.values.shift();
+        let removedNode = this.values[0];
 
         //Move the last node to the root and bubble down if necessary.
         let newRoot = this.values.pop();
-        this.values.unshift(newRoot);
-        let index = 0; //start from 0
+        
+        if(this.values.length === 0) return removedNode;
+        
+        //xxxxxxx-------- Should not use the unshift,  it will change the index of all the subsequent element. O(n)
+        // this.values.unshift(newRoot);
+        this.values[0] = newRoot;
+        
         //Bubble down.
+        this.sinkDown();
+        return removedNode;
+    }
+    sinkDown() {
+        let index = 0; //start from 0
         while(index < (this.values.length-1)) {
             let currentNode = this.values[index];
             //---This is MinBinaryHeap. To get the child -> (2n+1), (2n+2)
@@ -85,6 +97,12 @@ class PriorityQueue {
                 index = rightChildIndex;
             }
         }
-        return removedNode;
     }
 }
+
+let pq = new PriorityQueue();
+pq.enQueue("Cold", 5);
+pq.enQueue("Fracture", 3);
+pq.enQueue("Fever", 4);
+pq.enQueue("BrokenHead", 2);
+pq.enQueue("Gunshot", 1);

@@ -66,16 +66,26 @@ class MaxBinaryHeap {
     */
     extractMax() {
         //Extract the root.
-        let removedRoot = this.heap.shift();
-        //If the array consists of 1 or 2 items only, then return here.
-        // if(this.heap.length < 2 ) return;
+        //xxxxxxx-------- Should not use the shift, it will change the index of all the subsequent element. so O(n)
+        // let removedRoot = this.heap.shift();
+        let removedRoot = this.heap[0];
 
         //Get Last item.
         let lastItem = this.heap.pop();
+
         //Add it in the first element.
-        this.heap.unshift(lastItem);
-        let index = 0;
+        //xxxxxxx-------- Should not use the unshift,  it will change the index of all the subsequent element. O(n)
+        // this.heap.unshift(lastItem);
+        this.heap[0] = lastItem;
+
         //Bubble down/
+        this.sinkDown();
+        
+        return removedRoot;
+    }
+
+    sinkDown() {
+        let index = 0;
         while(index < (this.heap.length-1)) {
             let currentVal = this.heap[index];
             //Get the child.
@@ -101,6 +111,5 @@ class MaxBinaryHeap {
                 index = rightIndex; 
             }
         }
-        return removedRoot;
     }
 }
