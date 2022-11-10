@@ -59,8 +59,6 @@ class PriorityQueue {
         //Move the last node to the root and bubble down if necessary.
         let newRoot = this.values.pop();
         
-        if(this.values.length === 0) return removedNode;
-        
         //xxxxxxx-------- Should not use the unshift,  it will change the index of all the subsequent element. O(n)
         // this.values.unshift(newRoot);
         this.values[0] = newRoot;
