@@ -8,12 +8,22 @@ class Graph {
         this.adjacencyList = {};
     }
     
-    //Add the vertex
+    /* 
+    *   Add the vertex
+    *   -	Write a method called addVertex, which accepts a name of a vertex
+        -	It should add a key to the adjacency list with the name of the vertex and set its value to be an empty array.
+    */
     addVertex(vertex) {
         if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
     }
 
-    //Add the edge
+    /* 
+        Add the edge 
+            - Method to accepts two vertices.
+            - Check both vertices are present.
+            - Call the helper function to check whether the edge is already added or not.
+            - if not added, then add that edge to the vertex.    
+    */
     addEdge(vertex1,vertex2) {
         //Undirected graph so add in both.
         if(this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
@@ -34,7 +44,13 @@ class Graph {
         return found;
     }
 
-    //Helper - Remove the edge.
+    /* 
+        Remove the edge 
+            - Method to accepts two vertices.
+            - Check both vertices are present.
+            - Call the helper function to get the list of edges without the removed edge.
+            - Set that new array to the vertices. 
+    */
     removeEdge(vertex1,vertex2) {
         //Undirected graph so add in both.
         if(this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
@@ -59,7 +75,13 @@ class Graph {
 
     }
 
-    //Remove vertex.
+    /* 
+        Remove the vertex 
+            - Method to accepts one vertex.
+            - Check that vertiex is present.
+            - Get the edges of that vertex and remove its edge in those vertices.
+            - Delete the give vertex.
+    */
     removeVertex(removedVertex) {
         //Check the existence.
         if(this.adjacencyList[removedVertex]) {
