@@ -97,9 +97,17 @@ class Graph {
 
     /* 
         DepthFirst Traversal
-        - Function
-
-
+        - Function with one param called start
+        - declare empty array for storing the vertex
+        - declare empty obj to store the visited vertex.
+        - Add one helper which accepts current vertex as param.
+            - Check the current vertex is already added into the visited obj.
+                - If yes, then return null.
+                - If no, add it in result array and label it as visited.
+                - Loop over the adjacencyList[currentvertex] for edges.
+                - Call the helper method recursively for all the edges.
+        - Call the helper function with start vertex
+        - return the result array
     */
     depthFirstRecursive(start) {
         //Final return array

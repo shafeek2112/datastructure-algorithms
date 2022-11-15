@@ -3,7 +3,8 @@
 *        -	A FIFO data structure!
 *        -	First In First Out
 *
-*       -	Similar to Stack, we can use the Array to implement the Queue. But adding or removing a item in the beginning of the array is O(n), so we use the Singly Linked List push and shift method.
+*       -	Similar to Stack, we can use the Array to implement the Queue. 
+*           But adding or removing a item in the beginning of the array is O(n), so we use the Singly Linked List push and shift method.
 *       -	Enqueue: Adding to the beginning of the Queue!
 *       -	Dequeue: Removing from the beginning of the Queue.
 * 
